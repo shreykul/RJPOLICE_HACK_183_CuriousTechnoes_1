@@ -8,7 +8,6 @@ export const Colors = {
     green:'green',
     buttonColor:'#000000',
     DarkTextColor:'#858585',
-    AppTextColor:'#2a3cac',
     Dark_black:'#212121',
     forgot_text:'#464646',
     Bule_Color:'#11189e',
