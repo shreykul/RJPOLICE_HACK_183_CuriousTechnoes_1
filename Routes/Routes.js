@@ -1,5 +1,9 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Login from '../Src/Screen/Login/Login';
+import Splash from '../Src/common/Splash';
 
 const Stack = createStackNavigator();
 
@@ -8,8 +12,9 @@ function Routes(props) {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName='Splash' >
-        
+        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Login'>
+        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>
   
       </NavigationContainer>
