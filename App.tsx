@@ -1,11 +1,13 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView } from 'react-native'
 import React from 'react'
+import Routes from './Routes/Routes'
 
 const App = () => {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+   <SafeAreaView style={{flex:1}}>
+     <Routes/>
+   </SafeAreaView>
+  
   )
 }
 
