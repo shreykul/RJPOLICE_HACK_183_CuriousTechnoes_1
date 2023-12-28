@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native'
 import { Button } from 'react-native'
@@ -12,52 +12,49 @@ import MarginHW from '../../common/MarginHW'
 import ImagePath from '../../common/ImagePath'
 
 
-const Registration = () => {
+const Registration = (props) => {
   return (
-    <SafeAreaView style={{flex:1,backgroundColor:'#EEF5FF'}}> 
-    <View>
-      <Text style={Styles.maintext}>Registration</Text>
-    <View>
-    <CustomInput
-    placeholder = "Enter User Name"
-    placeholderTextColor={Colors.black}
-    />
-    </View>
-    <View>
-        <CustomInput
-        placeholder="Enter PASSWORD"
-        placeholderTextColor={Colors.black}
-        />
-    </View>
-    <View>
-        <CustomInput
-        placeholder="Confirm PASSWORD"
-        placeholderTextColor={Colors.black}
-        />
-    </View>
-    <View>
-        <CustomInput
-        placeholder="Enter Your Email "
-        placeholderTextColor={Colors.black}
-        />
-    </View>
-    <View style={{alignItems:'center',marginVertical:MarginHW.MarginH30}}>
-        <CustomButton title={'Registration'}/>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#EEF5FF' }}>
+      <Image source={ImagePath.bgimage} style={Styles.logoimage}/>
+      <View>
+        <Text style={[Styles.maintext,{marginVertical:MarginHW.MarginH10}]}>Registration</Text>
+        <View style={{bottom:MarginHW.MarginH10}}>
+          <CustomInput
+            placeholder="Enter User Name"
+            placeholderTextColor={Colors.black}
+          />
+        </View>
+        <View style={{bottom:MarginHW.MarginH20}}>
+          <CustomInput
+            placeholder="Enter password"
+            placeholderTextColor={Colors.black}
+          />
+        </View>
+        <View style={{bottom:MarginHW.MarginH20}}>
+          <CustomInput
+            placeholder="Confirm password"
+            placeholderTextColor={Colors.black}
+          />
+        </View>
+        <View style={{bottom:MarginHW.MarginH20}}>
+          <CustomInput
+            placeholder="Enter Your Email"
+            placeholderTextColor={Colors.black}
+          />
+        </View>
+        <View style={{ alignItems: 'center' }}>
+          <CustomButton title={'Registration'} />
         </View>
 
-    </View>
+      </View>
 
-    <view style={{flexDirection:"row"}}>
-        <Text Styles={Styles.subtext}>Alredy Have Account </Text>
-        <TouchableOpacity>
-            <Text style={[Styles.subtext,{color:'black',paddingLeft:MarginHW.MarginW10,textDecorationLine:'underline'}]}>Login</Text>
-            <Button
-            title="Go to Login"
-            onPress={() => navigation.navigate('Login')}
-      />
+      <View style={{ flexDirection: "row",justifyContent:'center',alignItems:'center' }}>
+        <Text Styles={Styles.subtext}>Already have an Account?</Text>
+        <TouchableOpacity onPress={()=>props.navigation.navigate('Login')}>
+          <Text style={[Styles.subtext, { color: 'black', paddingLeft: MarginHW.MarginW10, textDecorationLine: 'underline' }]}>Login</Text>
         </TouchableOpacity>
 
-    </view>
+      </View>
     </SafeAreaView>
   )
 }

@@ -13,7 +13,7 @@ function Routes(props) {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Login'>
+        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Registration'>
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} />

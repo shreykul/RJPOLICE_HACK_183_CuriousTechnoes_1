@@ -10,7 +10,7 @@ import CustomButton from '../../common/CustomButton'
 import MarginHW from '../../common/MarginHW'
 import ImagePath from '../../common/ImagePath'
 
-const Login = () => {
+const Login = (props) => {
   return (
     <SafeAreaView style={{flex:1,backgroundColor:'#EEF5FF'}}>
       <Image source={ImagePath.bgimage} style={Styles.logoimage}/>
@@ -35,7 +35,7 @@ const Login = () => {
 
       <View style={{flexDirection:'row'}}>
         <Text style={Styles.subtext}>Haven't Registered yet ?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>props.navigation.navigate('Registration')}>
         <Text style={[Styles.subtext,{color:'black',paddingLeft:MarginHW.MarginW10,textDecorationLine:'underline'}]}>Register Now</Text>
         </TouchableOpacity>
       </View>
