@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Login from '../Src/Screen/Login/Login';
 import Splash from '../Src/common/Splash';
 import Registration from '../Src/Screen/Login/Registration';
+import Homescreen from '../Src/Screen/Homescreen/Homescreen';
 
 const Stack = createStackNavigator();
 
@@ -13,10 +14,11 @@ function Routes(props) {
 
     return (
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Registration'>
+        <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName='Splash'>
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Registration" component={Registration} />
+        <Stack.Screen name="Homescreen" component={Homescreen} />
         </Stack.Navigator>
   
       </NavigationContainer>

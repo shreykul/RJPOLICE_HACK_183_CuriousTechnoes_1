@@ -5,8 +5,26 @@ import ImageSize from './ImageSize'
 import MarginHW from './MarginHW'
 import fonts from './fonts'
 import FontsSize from './FontsSize'
+import { handleNavigation } from '../../Routes/Routes'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../Service/Service'
 
-const Splash = () => {
+const Splash = (props) => {
+
+setTimeout(() => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log('User is signed in');
+      console.log('User:', user);
+   handleNavigation({ type: 'setRoot', navigation: props.navigation, page: 'Homescreen' })
+    } else {
+      console.log('No user is signed in');
+   handleNavigation({ type: 'setRoot', navigation: props.navigation, page: 'Login' })
+
+    }
+  });
+}, 3000);
+
   return (
     <View  style={{flex:1,backgroundColor:'#EEF5FF'}}>
      <Image source={ImagePath.App_logo} style={Styles.logoimage}/>

@@ -9,10 +9,11 @@ import { Colors } from '../../common/color'
 import CustomButton from '../../common/CustomButton'
 import MarginHW from '../../common/MarginHW'
 import ImagePath from '../../common/ImagePath'
-import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../../..'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { auth } from '../../Service/Service'
+import { handleNavigation } from '../../../Routes/Routes'
 
 
 
@@ -27,6 +28,7 @@ const Login = (props) => {
       .then((userCredential) => {
         var user = userCredential.user;
         console.log('User', user)
+        handleNavigation({ type: 'setRoot', navigation: props.navigation, page: 'Homescreen' })
       })
       .catch((error) => {
         var errorCode = error.code;

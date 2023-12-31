@@ -10,9 +10,12 @@ import { Colors } from '../../common/color'
 import CustomButton from '../../common/CustomButton'
 import MarginHW from '../../common/MarginHW'
 import ImagePath from '../../common/ImagePath'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { auth } from '../../..'
+import { auth } from '../../Service/Service'
+
+
+
 
 
 const Registration = (props) => {
@@ -20,11 +23,11 @@ const Registration = (props) => {
   const [password,setPassword]=useState('')
   const HandleSignup=()=>{
    
-    createUserWithEmailAndPassword(auth,email, password)
+   createUserWithEmailAndPassword(auth,email, password)
       .then((userCredential) => {
         
         var user = userCredential.user;
-        // ...
+        console.log('User',user)
       })
       .catch((error) => {
         var errorCode = error.code;
